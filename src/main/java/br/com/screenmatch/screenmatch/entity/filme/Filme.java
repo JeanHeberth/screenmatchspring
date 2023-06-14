@@ -1,9 +1,11 @@
 package br.com.screenmatch.screenmatch.entity.filme;
 
 import jakarta.persistence.*;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "filmes")
+@NoArgsConstructor
 public class Filme {
 
     @Id

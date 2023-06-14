@@ -2,6 +2,8 @@ package br.com.screenmatch.screenmatch.controller;
 
 import br.com.screenmatch.screenmatch.entity.filme.DadosCadastrosFilmes;
 import br.com.screenmatch.screenmatch.entity.filme.Filme;
+import br.com.screenmatch.screenmatch.repository.FilmeRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,7 +17,8 @@ import java.util.List;
 @RequestMapping("/filmes")
 public class FilmeController {
 
-    private List<Filme> filmes = new ArrayList<>();
+   @Autowired
+    private FilmeRepository filmeRepository;
 
     @GetMapping("/formulario")
     public String carregaPaginaFormulario() {
@@ -24,14 +27,14 @@ public class FilmeController {
 
     @GetMapping
     public String carregaPaginaListagem(Model model) {
-        model.addAttribute("lista", filmes);
+        model.addAttribute("lista", filmeRepository.findAll());
         return "filmes/listagem";
     }
 
     @PostMapping
     public String cadastraFilme(DadosCadastrosFilmes dadosCadastrosFilmes) {
         var filme = new Filme(dadosCadastrosFilmes);
-        filmes.add(filme);
+        filmeRepository.save(filme);
 
         return "redirect:/filmes";
     }
