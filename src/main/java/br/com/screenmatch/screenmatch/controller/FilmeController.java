@@ -33,9 +33,6 @@ public class FilmeController {
         var filme = new Filme(dadosCadastrosFilmes);
         filmes.add(filme);
 
-
-        System.out.println(filmes);
-
-        return "filmes/formulario";
+        return "redirect:/filmes";
     }
 }
