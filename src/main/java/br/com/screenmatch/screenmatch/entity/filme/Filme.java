@@ -1,17 +1,27 @@
 package br.com.screenmatch.screenmatch.entity.filme;
 
+import jakarta.persistence.*;
 
+@Entity
+@Table(name = "filmes")
 public class Filme {
 
-    private String nome;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
+    private String nome;
     private String genero;
 
     private Integer duracaoEmMinutos;
-    private Integer anoLancamento;
 
+    private Integer anoLancamento;
     public String getNome() {
         return nome;
+    }
+
+    public Long getId() {
+        return id;
     }
 
     public void setNome(String nome) {
