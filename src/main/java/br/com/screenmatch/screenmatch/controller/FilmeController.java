@@ -6,6 +6,7 @@ import br.com.screenmatch.screenmatch.repository.FilmeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,7 +18,7 @@ import java.util.List;
 @RequestMapping("/filmes")
 public class FilmeController {
 
-   @Autowired
+    @Autowired
     private FilmeRepository filmeRepository;
 
     @GetMapping("/formulario")
@@ -37,5 +38,12 @@ public class FilmeController {
         filmeRepository.save(filme);
 
         return "redirect:/filmes";
+    }
+
+    @DeleteMapping
+    public String removeFilme() {
+        System.out.println("filme excluido");
+        return "redirect:/filmes";
+
     }
 }

@@ -16,20 +16,28 @@
             <th>DURACAO</th>
             <th>ANO DO LANCAMENTO</th>
             <th>GENERO</th>
+            <th>ACOES</th>
         </tr>
         </thead>
 
         <tbody>
+        <a href="/filmes/formulario">Novo</a>
         <tr th:each="filme : ${lista}">
             <td th:text="${filme.nome}"></td>
             <td th:text="${filme.duracaoEmMinutos}"></td>
             <td th:text="${filme.anoLancamento}"></td>
             <td th:text="${filme.genero}"></td>
+            <td>
+                <form action="/filmes" method="post">
+                    <input type="hidden" name="_method" value="delete">
+                    <input type="submit" value="Excluir">
+                </form>
+            </td>
         </tr>
 
         </tbody>
     </table>
-    <a href="/filmes/formulario">Novo</a>
+
 </div>
 
 </body>
