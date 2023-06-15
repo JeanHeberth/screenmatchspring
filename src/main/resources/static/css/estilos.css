@@ -228,7 +228,7 @@ label {
     color: var(--azul-medio);
 }
 
-input[type="submit"] {
+input[type="submit"],#editar{
     background-color: var(--azul-escuro);
     color: white;
     border: none;
@@ -237,4 +237,5 @@ input[type="submit"] {
     font-size: 14px;
     text-transform: uppercase;
     cursor: pointer;
+    text-decoration: none;
 }
