@@ -55,6 +55,7 @@ public class Filme {
     }
 
     public Filme(DadosCadastrosFilmes dadosCadastrosFilmes) {
+        this.id = dadosCadastrosFilmes.id();
         this.nome = dadosCadastrosFilmes.nome();
         this.genero = dadosCadastrosFilmes.genero();
         this.duracaoEmMinutos = dadosCadastrosFilmes.duracao();
@@ -64,6 +65,7 @@ public class Filme {
     @Override
     public String toString() {
         return "Filme{" +
+                "id='" + id + '\''+
                 "nome='" + nome + '\'' +
                 ", genero='" + genero + '\'' +
                 ", duracaoEmMinutos=" + duracaoEmMinutos +
