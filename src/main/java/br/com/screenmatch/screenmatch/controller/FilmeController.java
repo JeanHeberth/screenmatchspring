@@ -1,15 +1,14 @@
 package br.com.screenmatch.screenmatch.controller;
 
+import br.com.screenmatch.screenmatch.entity.DadosAlteracaoFilmes;
 import br.com.screenmatch.screenmatch.entity.filme.DadosCadastrosFilmes;
 import br.com.screenmatch.screenmatch.entity.filme.Filme;
 import br.com.screenmatch.screenmatch.repository.FilmeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,7 +21,11 @@ public class FilmeController {
     private FilmeRepository filmeRepository;
 
     @GetMapping("/formulario")
-    public String carregaPaginaFormulario() {
+    public String carregaPaginaFormulario(Long id, Model model) {
+        if (id != null) {
+            var filme = filmeRepository.getReferenceById(id);
+            model.addAttribute("filme", filme);
+        }
         return "filmes/formulario";
     }
 
@@ -36,9 +39,17 @@ public class FilmeController {
     public String cadastraFilme(DadosCadastrosFilmes dadosCadastrosFilmes) {
         var filme = new Filme(dadosCadastrosFilmes);
         filmeRepository.save(filme);
-
         return "redirect:/filmes";
     }
+
+    @PutMapping
+    @Transactional
+    public String alteraFilme(DadosAlteracaoFilmes dadosAlteracaoFilmes) {
+        var filme = filmeRepository.getReferenceById(dadosAlteracaoFilmes.id());
+        filme.atualizaFilmes(dadosAlteracaoFilmes);
+        return "redirect:/filmes";
+    }
+
 
     @DeleteMapping
     public String removeFilme(Long id) {

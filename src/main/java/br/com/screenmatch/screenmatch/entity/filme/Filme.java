@@ -1,5 +1,6 @@
 package br.com.screenmatch.screenmatch.entity.filme;
 
+import br.com.screenmatch.screenmatch.entity.DadosAlteracaoFilmes;
 import jakarta.persistence.*;
 import lombok.NoArgsConstructor;
 
@@ -71,5 +72,12 @@ public class Filme {
                 ", duracaoEmMinutos=" + duracaoEmMinutos +
                 ", anoLancamento=" + anoLancamento +
                 '}';
+    }
+
+    public void atualizaFilmes(DadosAlteracaoFilmes dadosAlteracaoFilmes) {
+        this.nome = dadosAlteracaoFilmes.nome();
+        this.duracaoEmMinutos = dadosAlteracaoFilmes.duracao();
+        this.anoLancamento = dadosAlteracaoFilmes.ano();
+        this.genero = dadosAlteracaoFilmes.genero();
     }
 }
