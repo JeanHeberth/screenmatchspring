@@ -213,7 +213,7 @@ h1 {
     margin: 20px 0;
 }
 
-form div input {
+form div input{
     width: 50vw;
     border-radius: 24px;
     display: block;
@@ -228,7 +228,7 @@ label {
     color: var(--azul-medio);
 }
 
-input[type="submit"],#editar{
+input[type="submit"],#editar, #novo, #listar{
     background-color: var(--azul-escuro);
     color: white;
     border: none;
@@ -239,3 +239,12 @@ input[type="submit"],#editar{
     cursor: pointer;
     text-decoration: none;
 }
+form div #listar{
+    width: 49vw;
+    border-radius: 24px;
+    display: block;
+    padding: 1em;
+    text-align: center;
+    margin-top: 2px;
+}
+

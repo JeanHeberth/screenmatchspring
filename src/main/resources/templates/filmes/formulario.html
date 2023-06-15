@@ -2,7 +2,7 @@
 <html lang="en"
       xmlns:th="http://thymrleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{template.html}">
+      layout:decorate="~{template.html}" xmlns="http://www.w3.org/1999/html">
 <head>
     <title>Cadastro de filme</title>
 </head>
@@ -36,6 +36,8 @@
 
         <div>
             <input type="submit" value="Cadastrar">
+
+            <a id="listar" th:href="@{/filmes}">Listar</a>
         </div>
     </form>
 </div>

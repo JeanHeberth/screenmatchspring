@@ -21,7 +21,7 @@
         </thead>
 
         <tbody>
-        <a href="/filmes/formulario">Novo</a>
+        <a id="novo" href="/filmes/formulario">Novo</a>
         <tr th:each="filme : ${lista}">
             <td th:text="${filme.nome}"></td>
             <td th:text="${filme.duracaoEmMinutos}"></td>
