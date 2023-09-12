@@ -4,9 +4,9 @@ import br.com.screenmatch.screenmatch.entity.DadosAlteracaoFilmes;
 import jakarta.persistence.*;
 import lombok.NoArgsConstructor;
 
+@NoArgsConstructor
 @Entity
 @Table(name = "filmes")
-@NoArgsConstructor
 public class Filme {
 
     @Id
