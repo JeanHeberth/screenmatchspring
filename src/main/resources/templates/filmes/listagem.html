@@ -9,7 +9,7 @@
 <body>
 <div layout:fragment="conteudo">
     <h1>Lista de filmes</h1>
-    <table>
+    <table id="lista-filmes">
         <thead>
         <tr>
             <th>NOME</th>
@@ -23,10 +23,10 @@
         <tbody>
         <a id="novo" href="/filmes/formulario">Novo</a>
         <tr th:each="filme : ${lista}">
-            <td th:text="${filme.nome}"></td>
-            <td th:text="${filme.duracaoEmMinutos}"></td>
-            <td th:text="${filme.anoLancamento}"></td>
-            <td th:text="${filme.genero}"></td>
+            <td id="nome-filme" th:text="${filme.nome}"></td>
+            <td id="duracao-filme" th:text="${filme.duracaoEmMinutos}"></td>
+            <td id="ano-lancamento" th:text="${filme.anoLancamento}"></td>
+            <td id="genero-filme" th:text="${filme.genero}"></td>
             <td>
                 <a id="editar" th:href="@{/filmes/formulario?id={id}(id=${filme.id})}">Editar</a>
 
@@ -36,14 +36,6 @@
                     <input id="excluir" type="submit" value="Excluir">
                 </form>
 
-
-            </td>
-        </tr>
-
-        </tbody>
-    </table>
-
-</div>
 
 </body>
 </html>
